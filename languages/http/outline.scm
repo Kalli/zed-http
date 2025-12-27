@@ -2,7 +2,7 @@
 
 ; Request with @name attribute in preceding comment
 ; Shows comment as name, with method and URL as context
-(document
+(section
   (comment) @name
   .
   (request

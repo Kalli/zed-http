@@ -4,13 +4,11 @@
 ; Highlight HTTP comments
 (comment) @comment
 
-; Highlight URLs and paths
+; Highlight URLs
 (target_url) @string.url
-(host) @string.url
-(path) @string.url
 
 ; Highlight HTTP headers
-(header name: (name) @property)
+(header name: (header_entity) @property)
 (header value: (value) @string)
 
 ; Highlight HTTP status codes and status texts
@@ -24,22 +22,23 @@
 (variable_declaration
   name: (identifier) @variable)
 (variable_declaration
-  value: (string) @string)
-(variable_declaration
-  value: (number) @number)
-(variable_declaration
-  value: (boolean) @boolean)
+  value: (value) @string)
 
-; Highlight variables and script variables ({{foo}})
-(variable) @variable
-(script_variable) @variable.special
+
+; Highlight variable usage ({{foo}})
+(variable
+  name: (identifier) @variable.special)
+
 
 ; Highlight different types of request bodies
 (json_body) @string.special
 (xml_body) @string.special
 (graphql_body) @string.special
 (external_body) @string.special
-(form_data) @string.special
+(multipart_form_data) @string.special
+(raw_body) @string.special
 
-; Highlight query parameters
-(query_param) @string
+; Highlight scripts
+(pre_request_script) @embedded
+(res_handler_script) @embedded
+(script) @embedded
