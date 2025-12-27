@@ -1,5 +1,6 @@
 
 ### Simple GET Request
+# @name SimpleGETRequest
 GET http://example.com/api/data
 Accept: application/json
 Cache-Control: no-cache
